@@ -37,8 +37,8 @@ public class Interfaces_2 extends JFrame {
         Tipos de letra
     */
     Font tipo_letra_usuarios = new Font("Rockwell",3, 12); // Tipo de letra (nombre del tipo de letra, codigo si es negrita etc, tamanio)
-    Font titulo_resultados = new Font("Rockwell", 0, 24);
-    Font lbls = new Font("Rockwell", 0, 16);
+
+    Font lbls = new Font("Rockwell", 1, 16);
     
     //Inicializando lo que tendra la interfaz de los resultados finales    
     public Interfaces_2(String titulo) throws SQLException{
@@ -64,7 +64,7 @@ public class Interfaces_2 extends JFrame {
         if(menu == null){
             menu = new Interfaces_2("Resultados Finales");
         } else{
-            System.out.println("No se puede crear otro objeto Menu porque ya existe");
+            System.out.println("No se puede crear otro objeto resultados finales porque ya existe");
         }
         return menu;
     }
@@ -75,9 +75,9 @@ public class Interfaces_2 extends JFrame {
         Container cp = getContentPane();//Donde almacenara todas las cosas que tendra la ventana
         
         resultados_Finales = new JLabel();
-        resultados_Finales.setFont(titulo_resultados);
-        resultados_Finales.setText("~ Resultados Finales ~");
-        resultados_Finales.setBounds(150, 10, 250, 50);
+        ImageIcon resultados = new ImageIcon(getClass().getResource("result.png"));
+        resultados_Finales.setIcon(resultados);
+        resultados_Finales.setBounds(40, 10, 523, 51);
         
         //Inicializando los labels
         lblId = new JLabel("ID");
@@ -92,19 +92,18 @@ public class Interfaces_2 extends JFrame {
         lbltiempo.setFont(lbls);
         
         //Ubicando los labels
-        lblId.setBounds(10, 15, 200, 150);
-        lblnombre.setBounds(80, 15, 200, 150);
-        lblpuntos.setBounds(265, 15, 200, 150);
-        lbltiempo.setBounds(390, 15, 200, 150);
+        lblId.setBounds(10, 20, 200, 150);
+        lblnombre.setBounds(80, 20, 200, 150);
+        lblpuntos.setBounds(265, 20, 200, 150);
+        lbltiempo.setBounds(390, 20, 200, 150);
         
         //Colocando color a las letras de los labels
-        lblId.setForeground(Color.MAGENTA);
-        lblnombre.setForeground(Color.MAGENTA);
-        lblpuntos.setForeground(Color.MAGENTA);
-        lbltiempo.setForeground(Color.MAGENTA);
+        lblId.setForeground(Color.black);
+        lblnombre.setForeground(Color.black);
+        lblpuntos.setForeground(Color.black);
+        lbltiempo.setForeground(Color.black);
         
-        //Colocando color al label de resultados finales
-        resultados_Finales.setForeground(Color.decode("#00BFFF"));//Decode sirve para convertir una cadena y leerlo como hexadecimal
+        //Decode sirve para convertir una cadena y leerlo como hexadecimal
         
         //Agragando al contenedor
         cp.add(resultados_Finales);
@@ -132,10 +131,10 @@ public class Interfaces_2 extends JFrame {
              tiempo[i].setFont(tipo_letra_usuarios);
              
              //Colocando colores a las letras
-             id[i].setForeground(Color.WHITE);
-             nombre[i].setForeground(Color.WHITE);
-             score[i].setForeground(Color.WHITE);
-             tiempo[i].setForeground(Color.WHITE);
+             id[i].setForeground(Color.LIGHT_GRAY);
+             nombre[i].setForeground(Color.LIGHT_GRAY);
+             score[i].setForeground(Color.LIGHT_GRAY);
+             tiempo[i].setForeground(Color.LIGHT_GRAY);
              
              //Obteniendo los valores de la base de datos 
              id[i].setText(Integer.toString(jugadores.get(i).getId()));
@@ -144,10 +143,10 @@ public class Interfaces_2 extends JFrame {
              tiempo[i].setText(Float.toString(jugadores.get(i).getTime()));
              
              //Ubicacion de los datos
-             id[i].setBounds(10, (i * 30) + 10, 500, 200);
-             nombre[i].setBounds(80,(i * 30) + 10, 500, 200);
-             score[i].setBounds(270,(i * 30) + 10, 500, 200);
-             tiempo[i].setBounds(400,(i * 30) + 10, 500, 200);
+             id[i].setBounds(10, (i * 30) + 30, 500, 200);
+             nombre[i].setBounds(80,(i * 30) + 30, 500, 200);
+             score[i].setBounds(270,(i * 30) + 30, 500, 200);
+             tiempo[i].setBounds(400,(i * 30) + 30, 500, 200);
              
              //Agregarlos al contenedor
             cp.add(id[i]);
@@ -164,7 +163,8 @@ public class Interfaces_2 extends JFrame {
         cp.add(imagen_de_prueba);
          
         fondo = new JLabel();
-        fondo.setIcon(new ImageIcon(getClass().getResource("res.jpg")));
+        ImageIcon fon1 =new ImageIcon(getClass().getResource("res3.jpg"));
+        fondo.setIcon(fon1);
         fondo.setBounds(0, 0, 600, 600);
         cp.add(fondo);
         
@@ -181,9 +181,11 @@ public class Interfaces_2 extends JFrame {
 //        });
 //    }   
     public void Sonido(){
-        AudioClip audio;
+        AudioClip audio,trueno;
         audio = Applet.newAudioClip(getClass().getResource("musica.wav"));
+        trueno = Applet.newAudioClip(getClass().getResource("trueno.wav"));
         audio.loop();
+        trueno.play();
     }
 
 }

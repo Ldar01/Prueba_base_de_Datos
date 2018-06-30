@@ -53,6 +53,5 @@ public class Jugador {
     public void setTime(float time) {
         this.time = time;
     }
-     
-     
+          
 }
