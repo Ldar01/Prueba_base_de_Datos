@@ -26,14 +26,6 @@ public class Practica_SWING {
         // TODO code application logic here
         Interfaces_2 menu = Interfaces_2.getInstance();
         menu.setVisible(true);
-//        Interfaces_2 menu2 = Interfaces_2.getInstance();
-//        menu2.setVisible(true);
-//         Jugadores jugadoresLol = new Jugadores();
-//         ArrayList<Jugador> jugadores = jugadoresLol.getJugadores();
-//         for(Jugador j : jugadores){
-//             System.out.println("ID: "+ j.getId()+" Usuario: "+ j.getUsuario()+" Score: "+ j.getScore()+" Tiempo: "+ j.getTime());
-//         }
-
     }
 
 }

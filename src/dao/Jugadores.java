@@ -60,13 +60,16 @@ public class Jugadores {
     }
     
     public void InsertarJugador(Jugador jugador){
+   
         java.sql.Connection con = null;
         try {
             con = Conexion.conectar().getCnx();
+            //Prepara la Query
             PreparedStatement preparedStatement = con.prepareStatement(
                     "INSERT INTO " + TABLE_NAME +
                             "(" + USUARIO + "," + SCORE + "," + TIEMPO + ")"
                             + " VALUES(?,?,?)");
+            //Obtiene los jugadores
             preparedStatement.setString(1, jugador.getUsuario());
             preparedStatement.setInt(2, jugador.getScore());
             preparedStatement.setFloat(3, jugador.getTime());
